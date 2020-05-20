@@ -1,0 +1,34 @@
+<html>
+<head></head>
+<body>
+<h1>Blog Posts</h1>
+    <div>
+    <a href="http://localhost:3000/add-post"><button>Add Blog Post</button></a>
+    </div>
+        <div>
+    <a href="http://localhost:3000/filter"><button>Filter by Category</button></a>
+    </div>
+    <ul>
+    {{#allPosts}} 
+        <li>
+        <p><b>Title: </b>{{title}}</p>
+        <p><b>Body: </b>{{body}}</p>
+        <p><b>Category: </b>{{category}}</p>
+        <form method="GET" action="/update/{{id}}"> 
+        <input type="hidden" value="{{id}}"  name="updateID"/>
+        <input type="hidden" value="{{title}}"  name="updateTitle"/>
+        <input type="hidden" value="{{body}}"  name="updateBody"/>
+        <input type="hidden" value="{{category}}"  name="updateCategory"/>
+        <button>Edit</button> 
+        </form>
+        <form method="POST" action="/delete"> 
+        <input type="hidden" value="{{id}}"  name="deleteID"/>
+        <button>Delete</button> 
+        </form>
+        </li>
+
+    {{/allPosts}}
+    </ul>
+
+</body>
+</html>
