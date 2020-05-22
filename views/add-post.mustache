@@ -1,13 +1,19 @@
 <html>
 <head></head>
 <body>
-<h1>Add Blog Post</h1>
+    <h1>Add Blog Post</h1>
+    <div>
+        <a href="http://localhost:3000/posts"><button>View All Blog Posts</button></a>
+    </div>
+    <p></p>
     <form method="POST" action="/add-post">
-        <input type="text" placeHolder="Enter a title" name="postTitle" />
-        <input type="text" placeHolder="Enter the body" name="postBody" />
-        <input type="text" placeHolder="Enter a category" name="postCategory" />
+        <input type="text" placeHolder="Enter a title" name="newTitle" />
+        <input type="text" placeHolder="Enter the body" name="newBody" />
+        <input type="text" placeHolder="Enter a category" name="newCategory" />
         <button>Save</button>
     </form>
-
+    {{#title}}
+        {{title}} blog post has been added.
+    {{/title}}
 </body>
 </html>

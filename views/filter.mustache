@@ -2,31 +2,30 @@
 <head></head>
 <body>
     <h1>Filter Blog Posts by Category</h1>
-
-    {{! <div>
-    <form method="POST" action="/python"><button>Filter by Python</button></form>
-    <form method="POST" action="/javascript"><button>Filter by JavaScript</button></form>
-    <form method="POST" action="/ios"><button>Filter by iOS</button></form>
-    <form method="POST" action="/android"><button>Filter by Android</button></form>    
-    </div> }}
     <div>
     <a href="http://localhost:3000/posts"><button>View All Blog Posts</button></a>
     </div>
-<label>Filter by Category</label>
-<form method="POST" action="/filter">
-<select name="pick">
-    <option value="Python">Python</option>
-    <option value="JavaScript">JavaScript</option>
-    <option value="iOS">iOS</option>
-    <option value="Android">Android</option>
-</select>
-<button>Submit</button>
-</form>
+    <p></p>
+    <h3>Filter by Category</h3>
+    <p></p>
+    <form method="POST" action="/filter">
+        <select name="pick">
+            <option value="Python">Python</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="iOS">iOS</option>
+            <option value="Android">Android</option>
+        </select>
+    <button>Submit</button>
+    </form>
+    <p></p>
     <ul>
         {{#postFilter}}
+        <li>
             <p><b>Title: </b>{{title}}</p> 
             <p><b>Body: </b>{{body}}</p>      
             <p><b>Category: </b>{{category}}</p>
+        </li>
+        <br/>   
         {{/postFilter}}
     </ul>
 

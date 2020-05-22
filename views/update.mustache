@@ -5,13 +5,16 @@
 <div>
     <a href="http://localhost:3000/posts"><button>View All Blog Posts</button></a>
 </div>
-
+<p></p>
 <div>    
     <form method="POST" action="/update">
-        <input type="text" value="{{title}}" name="updateTitle" />
-        <input type="text" value="{{body}}" name="updateBody" />
-        <input type="text" value="{{category}}" name="updateCategory" />
-        <input type="hidden" value={{id}} name="updateID" />
+        <div style="display:flex; flex-direction:column; width:50%">
+            <input type="text" value="{{title}}" name="updateTitle" />
+            <textarea name="updateBody">{{body}}</textarea>
+            <input type="text" value="{{category}}" name="updateCategory" />
+            <input type="hidden" value={{id}} name="updateID" />
+            
+        </div>
         <button>Save</button>
     </form>
  </div>
@@ -22,8 +25,8 @@
             <p><b>Title: </b>{{title}}</p>
             <p><b>Body: </b>{{body}}</p>
             <p><b>Category: </b>{{category}}</p>
-            <form method="POST" action="/delete"> 
-                <input type="hidden" value="{{id}}"  name="deleteID"/>
+            <form method="POST" action="/delete-post"> 
+                <input type="hidden" value="{{id}}"  name="deletePostID"/>
                 <button>Delete</button> 
             </form>
         </li>

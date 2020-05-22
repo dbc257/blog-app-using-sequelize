@@ -1,0 +1,35 @@
+<html>
+<head></head>
+<body>
+    <h1>{{title}}</h1>
+    <div>
+    <a href="http://localhost:3000/posts"><button>View All Blog Posts</button></a>
+    </div>
+    <h3>Add a Comment:</h3>
+    
+    <form method="POST" action="/add-comment">
+        <div style="display:flex; flex-direction:column; width:50%">
+            <input type="hidden" value={{id}} name="postID" />
+            <input type="text" placeHolder="Enter Title" name="title" />
+            <textarea name="body"></textarea> 
+        </div>
+        <button>Submit</button>
+    </form>
+
+    <h3>{{title}} Comments</h3>
+    <ul>
+    {{#comments}}
+        <li>
+            {{title}}
+            <p>{{body}}</p>
+            <form method="POST" action="/delete-comment">
+            <input type="hidden" value="{{id}}"  name="deleteID"/>
+            <input type="hidden" value="{{comment_id}}"  name="commentID"/>
+            <button>Delete</button>             
+            </form>
+        </li>
+    {{/comments}}
+    </ul>
+
+</body>
+</html>
